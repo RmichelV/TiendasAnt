@@ -12,7 +12,8 @@ class GeneroController extends Controller
      */
     public function index()
     {
-        //
+        $generos = genero::all();
+        return view("genero.index", compact("generos"));
     }
 
     /**
@@ -28,7 +29,10 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $generos = new Genero;
+        $generos->nombre = $request->input("nombre");
+        $generos->save();
+        return redirect()->back();
     }
 
     /**
@@ -50,16 +54,21 @@ class GeneroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, genero $genero)
+    public function update(Request $request, $id_genero)
     {
-        //
+        $generos = genero::find($id_genero);
+        $generos->nombre = $request->input("nombre");
+        $generos->update();
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(genero $genero)
+    public function destroy($id_genero)
     {
-        //
+        $generos = genero::find($id_genero);
+        $generos->delete();
+        return redirect()->back();
     }
 }

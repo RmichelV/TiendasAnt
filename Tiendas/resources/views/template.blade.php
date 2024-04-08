@@ -34,12 +34,14 @@
                         REGISTROS
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{url('plataformas')}}">Plataformas</a></li>
-                        <li><a class="dropdown-item" href="">Géneros</a></li>
+                        <li><a class="dropdown-item" href="{{url('estados')}}">Estados de venta</a></li>
+                        <li><a class="dropdown-item" href="{{url('generos')}}">Géneros</a></li>
                         <li><a class="dropdown-item" href="">Métodos de pago</a></li>
+                        <li><a class="dropdown-item" href="{{url('plataformas')}}">Plataformas</a></li>
                         <li><a class="dropdown-item" href="{{url('roles')}}">Roles</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="">Lista de usuarios</a></li>
+                        <li><a class="dropdown-item" href="">Lista de tiendas</a></li>
                     </ul>
                     </li>
                 </ul>

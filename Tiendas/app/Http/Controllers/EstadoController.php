@@ -12,7 +12,8 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        //
+        $estados = Estado::all();
+        return view("estado.index", compact("estados"));
     }
 
     /**
@@ -28,7 +29,10 @@ class EstadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estados = new Estado;
+        $estados->nombre = $request->input("nombre");
+        $estados->save();
+        return redirect()->back();
     }
 
     /**
@@ -50,16 +54,21 @@ class EstadoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, estado $estado)
+    public function update(Request $request, $id_estado)
     {
-        //
+        $estados = Estado::find( $id_estado );
+        $estados->nombre = $request->input("nombre");
+        $estados->update();
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(estado $estado)
+    public function destroy($id_estado)
     {
-        //
+        $estados = Estado::find( $id_estado );
+        $estados->delete();
+        return redirect()->back();
     }
 }
