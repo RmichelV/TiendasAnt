@@ -40,26 +40,35 @@
                                 <li><a class="dropdown-item" href="{{url('plataformas')}}">Plataformas</a></li>
                                 <li><a class="dropdown-item" href="{{url('roles')}}">Roles</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="">Lista de usuarios</a></li>
+                                <li><a class="dropdown-item" href="{{url('users')}}">Lista de usuarios</a></li>
                                 <li><a class="dropdown-item" href="">Lista de tiendas</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Carrito</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
-                    @auth
-                        <a href="{{route('dashboard')}}">Dashboard</a>
-                    @else 
-                        <a href="{{route('login')}}">login</a>
-                    @endauth
+                    <button type="button" class="btn btn-outline-success">
+                        @auth
+                            <a href="{{route('dashboard')}}">Dashboard</a>
+                        @else 
+                            <a href="{{route('login')}}">Iniciar Sesión</a>
+                        @endauth
+                    </button>
                 </div>
             </div>
         </nav>
     <!--FIN MENU DE NAVEGACION-->
 
-    @yield('content')
+    <!--Main-->
+        <div class="container-fluid">
+            @yield('content')
+        </div>
+    <!--Fin main -->
 
     <!--JS BOOTSTRAP-->
         <script

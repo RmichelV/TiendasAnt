@@ -7,6 +7,7 @@ use App\Http\Controllers\PlataformaController;
 use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\MetodoDePagoController;
+use App\Http\Controllers\UserController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -17,6 +18,7 @@ Route::resource('plataformas',PlataformaController::class);
 Route::resource('generos', GeneroController::class);
 Route::resource('estados',EstadoController::class);
 Route::resource('metodos',MetodoDePagoController::class);
+Route::resource('users',UserController::class);
 
 
 Route::get('/dashboard', function () {
