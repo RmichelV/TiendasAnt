@@ -43,5 +43,9 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <p>
+            <br>
+                <a href="{{url('register')}}"><center style="color: white">No tienes una cuenta aun? REGISTRATE! <br>Haz Click Aquí</center> </a>
+        </p>
     </form>
 </x-guest-layout>
