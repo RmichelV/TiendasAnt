@@ -144,3 +144,10 @@ CREATE TABLE juegos_generos (
 );
 
 ----------------------------- 12 ---------------------------------
+CREATE TABLE juegos_carritos (
+    id_carrito INT,
+    id_juego INT,
+    FOREIGN KEY (id_juego) REFERENCES juegos(id_juego) ON DELETE CASCADE,
+    FOREIGN KEY (id_carrito) REFERENCES carritos(id_carrito) ON DELETE CASCADE
+);
+---------------------------13-----------------------------
