@@ -1,11 +1,12 @@
 @extends('template')
 @section('content')
 
+    <h1> <center>Lista de Géneros</center></h1>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar">
     Agregar nueva Género
     </button>
-
+    <br>
     <div class="table-responsive">
         <table class="table table-primary">
             <thead class="table-dark">

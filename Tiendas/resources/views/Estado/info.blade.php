@@ -12,14 +12,14 @@
                 @method('PUT')
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="" class="form-label">Estado</label>
+                        <label for="" class="form-label">Estado de venta</label>
                         <input
                             type="text"
                             class="form-control"
                             name="nombre"
                             id=""
                             aria-describedby="helpId"
-                            placeholder="Agregue el genero aqui"
+                            placeholder="Agregue el estado de venta aqui"
                             value="{{$estado->nombre}}"
                         />
                     </div>

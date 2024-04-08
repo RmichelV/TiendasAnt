@@ -12,7 +12,8 @@ class MetodoDePagoController extends Controller
      */
     public function index()
     {
-        //
+        $metodos = metodo_de_pago::all();
+        return view("metodop.index", compact("metodos"));
     }
 
     /**
@@ -28,7 +29,10 @@ class MetodoDePagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $metodos = new metodo_de_pago;
+        $metodos->nombre = $request->input("nombre");
+        $metodos->save();
+        return redirect()->back();
     }
 
     /**
@@ -50,16 +54,21 @@ class MetodoDePagoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, metodo_de_pago $metodo_de_pago)
+    public function update(Request $request, $id_metodop)
     {
-        //
+        $metodos = metodo_de_pago::find($id_metodop);
+        $metodos->nombre = $request->input("nombre");
+        $metodos->update();
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(metodo_de_pago $metodo_de_pago)
+    public function destroy($id_metodop)
     {
-        //
+        $metodos = metodo_de_pago::find($id_metodop);
+        $metodos->delete();
+        return redirect()->back();
     }
 }

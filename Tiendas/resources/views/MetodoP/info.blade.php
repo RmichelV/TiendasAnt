@@ -1,25 +1,25 @@
 <!-- Modal editar -->
-<div class="modal fade" id="editar{{$genero->id_genero}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editar{{$metodo->id_metodop}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar el genero</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nuevo Metodo de pago</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('generos.update',$genero->id_genero)}}" method="post">
+            <form action="{{route('metodos.update',$metodo->id_metodop)}}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="" class="form-label">Editar Genero</label>
+                        <label for="" class="form-label">Forma de pago</label>
                         <input
                             type="text"
                             class="form-control"
                             name="nombre"
                             id=""
                             aria-describedby="helpId"
-                            placeholder="Agregue el genero aqui"
-                            value="{{$genero->nombre}}"
+                            placeholder="Agregue la forma de pago aqui"
+                            value="{{$metodo->nombre}}"
                         />
                     </div>
                     <div class="modal-footer">
@@ -33,18 +33,18 @@
 </div>
 
 <!-- Modal ELIMINAR-->
-<div class="modal fade" id="eliminar{{$genero->id_genero}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminar{{$metodo->id_metodop}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar genero</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Forma de Pago</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('generos.destroy',$genero->id_genero)}}" method="post">
+            <form action="{{route('metodos.destroy',$metodo->id_metodop)}}" method="post">
                 @csrf
                 @method('DELETE')
                 <div class="modal-body">
-                    Estas seguro de eliminar el género  <strong>{{$genero->nombre}}</strong>
+                    Estas seguro de eliminar a la forma de pago de  <strong>{{$metodo->nombre}}</strong>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Eliminar</button>

@@ -1,11 +1,14 @@
 @extends('template')
 @section('content')
 
+    <h1><center>Lista de tipos de usuarios</center> </h1>
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar">
     Agregar nuevo Rol
     </button>
-
+    <br>
+    <br>
     <div class="table-responsive">
         <table class="table table-primary">
             <thead class="table-dark">
