@@ -1,11 +1,11 @@
 @extends('template')
 @section('content')
 
-    <h1><center>Lista de tipos de roles</center> </h1>
+    <h1><center>Lista de las tiendas </center> </h1>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar">
-    Agregar nuevo Rol
+    Agregar nueva tienda 
     </button>
     <br>
     <br>
@@ -14,20 +14,22 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">ROL</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">DIRECCION</th>
+                    <th scope="col">PERTENENCIA</th>
                     <th scope="col">ACCIONES</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($roles as $rol)
+                @foreach ($tiendas as $tienda)
                     <tr class="">
-                        <td scope="row">{{$rol->id_rol}}</td> <!--aqui va el id-->
-                        <td> {{$rol->nombre}} </td>
+                        <td scope="row">{{$tienda->id_tienda}}</td> <!--aqui va el id-->
+                        <td> {{$tienda->nombre}} </td>
                         <td>
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editar{{$rol->id_rol}}">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editar{{$tienda->id_tienda}}">
                                 Editar
                             </button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar{{$rol->id_rol}}">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar{{$tienda->id_tienda}}">
                                 Eliminar
                             </button>
                         </td>
@@ -36,6 +38,6 @@
             </tbody>
         </table>
     </div>
-    @include('rol.agregar')
-    @include('rol.info')
+    @include('tienda.agregar')
+    @include('tienda.info')
 @endsection

@@ -8,6 +8,7 @@ use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\MetodoDePagoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TiendaController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -19,7 +20,7 @@ Route::resource('generos', GeneroController::class);
 Route::resource('estados',EstadoController::class);
 Route::resource('metodos',MetodoDePagoController::class);
 Route::resource('users',UserController::class);
-
+Route::resource('tiendas',TiendaController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

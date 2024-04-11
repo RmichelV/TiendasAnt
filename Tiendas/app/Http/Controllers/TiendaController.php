@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\tienda;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TiendaController extends Controller
@@ -12,7 +13,9 @@ class TiendaController extends Controller
      */
     public function index()
     {
-        //
+        $tiendas = tienda::all();
+        $users = user::all();
+        return view("Tienda.index", compact("tiendas","users"));
     }
 
     /**
@@ -28,7 +31,12 @@ class TiendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tiendas = new tienda();
+        $tiendas->nombre = $request->input("nombre");
+        $tiendas->direccion=$request->input("direccion");
+        $tiendas->user_id=$request->input("user");
+        $tiendas->save();
+        return redirect()->back();
     }
 
     /**
@@ -50,16 +58,23 @@ class TiendaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, tienda $tienda)
+    public function update(Request $request, $id_tienda)
     {
-        //
+        $tiendas = tienda::find($id_tienda);
+        $tiendas->nombre = $request->input("nombre");
+        $tiendas->direccion=$request->input("direccion");
+        $tiendas->user_id=$request->input("user");
+        $tiendas->update();
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(tienda $tienda)
+    public function destroy($id_tienda)
     {
-        //
+        $tiendas = tienda::find($id_tienda);
+        $tiendas->delete();
+        return redirect()->back();
     }
 }

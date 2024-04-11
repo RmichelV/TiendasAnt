@@ -1,0 +1,87 @@
+<!-- Modal editar -->
+@foreach ($tiendas as $tienda)
+    
+
+<div class="modal fade" id="editar{{$tienda->id_tienda}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Tienda</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('tiendas.update',$tienda->id_tienda)}}" method="post">
+                @csrf
+                @method('PUT')
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nombre de la  Tienda</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="nombre"
+                            id=""
+                            aria-describedby="helpId"
+                            placeholder="Agregue el rol aqui"
+                            value="{{$tienda->nombre}}"
+                        />
+                        <label for="" class="form-label">Direccion de la  Tienda</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="direccion"
+                            id=""
+                            aria-describedby="helpId"
+                            placeholder="Agregue el rol aqui"
+                            value="{{$tienda->direccion}}"
+                        />
+                        <label for="user" class="form-label">Pertenece a: </label>
+                        <select name="user" id="" class="form-control">
+                            @foreach ($users as $user)
+                            @if($tienda->user_id==$user->id)
+                            <option value="{{$user->id}}" selected> {{$user->name}}</option>
+                            @else
+                            <option value="{{$user->id}}"> {{$user->name}}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+@endforeach
+@foreach ($tiendas as $tienda)
+    
+
+<!-- Modal ELIMINAR-->
+<div class="modal fade" id="eliminar{{$tiendas->id_tienda}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Tienda</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('tiendas.destroy',$tienda->id_tienda)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <div class="modal-body">
+                    Estas seguro de eliminar la tienda  <strong>{{$tienda->nombre}}</strong>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Eliminar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+@endforeach

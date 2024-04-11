@@ -41,7 +41,7 @@
                                 <li><a class="dropdown-item" href="{{url('roles')}}">Roles</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{url('users')}}">Lista de usuarios</a></li>
-                                <li><a class="dropdown-item" href="">Lista de tiendas</a></li>
+                                <li><a class="dropdown-item" href="{{url('tiendas')}}">Lista de tiendas</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
