@@ -26,29 +26,40 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('juegos')}}">Lista de Juegos</a>
-                        </li>
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                REGISTROS
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{url('estados')}}">Estados de venta</a></li>
-                                <li><a class="dropdown-item" href="{{url('generos')}}">Géneros</a></li>
-                                <li><a class="dropdown-item" href="{{url('metodos')}}">Métodos de pago</a></li>
-                                <li><a class="dropdown-item" href="{{url('plataformas')}}">Plataformas</a></li>
-                                <li><a class="dropdown-item" href="{{url('roles')}}">Roles</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{{url('users')}}">Lista de usuarios</a></li>
-                                <li><a class="dropdown-item" href="{{url('tiendas')}}">Lista de tiendas</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Carrito</a>
-                        </li>
+                        @auth
+                            
+                            @if (auth()->user()->id_rol== 1 || auth()->user()->id_rol== 2)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url('juegos')}}">Lista de Juegos</a>
+                                </li>
+                            @endif
+                        @endauth
+                        @auth
+                            @if (auth()->user()->id_rol== 1)
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        REGISTROS
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{url('estados')}}">Estados de venta</a></li>
+                                        <li><a class="dropdown-item" href="{{url('generos')}}">Géneros</a></li>
+                                        <li><a class="dropdown-item" href="{{url('metodos')}}">Métodos de pago</a></li>
+                                        <li><a class="dropdown-item" href="{{url('plataformas')}}">Plataformas</a></li>
+                                        <li><a class="dropdown-item" href="{{url('roles')}}">Roles</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="{{url('users')}}">Lista de usuarios</a></li>
+                                        <li><a class="dropdown-item" href="{{url('tiendas')}}">Lista de tiendas</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+                        @endauth
+                        @auth
+                            @if (auth()->user()->id_rol== 3)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Carrito</a>
+                                </li>
+                            @endif
+                        @endauth
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

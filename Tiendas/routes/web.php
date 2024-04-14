@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RolController;
@@ -12,10 +13,12 @@ use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\JuegoController;
 use App\Http\Controllers\WelcomeController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('templates', TemplateController::class);
 Route::resource('roles',RolController::class);
 Route::resource('plataformas',PlataformaController::class);
 Route::resource('generos', GeneroController::class);
