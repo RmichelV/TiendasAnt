@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\welcome;
 use Illuminate\Http\Request;
+use App\Models\juego;
 
 class WelcomeController extends Controller
 {
@@ -12,7 +13,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        //
+        $juegos = juego::all();
+        return view("welcome", compact("juegos"));
     }
 
     /**

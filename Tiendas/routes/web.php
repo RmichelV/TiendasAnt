@@ -10,6 +10,7 @@ use App\Http\Controllers\MetodoDePagoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\JuegoController;
+use App\Http\Controllers\WelcomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,7 @@ Route::resource('metodos',MetodoDePagoController::class);
 Route::resource('users',UserController::class);
 Route::resource('tiendas',TiendaController::class);
 Route::resource('juegos',JuegoController::class);
+Route::resource('/',WelcomeController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard'); // este hay que modificar
