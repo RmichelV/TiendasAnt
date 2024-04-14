@@ -83,7 +83,7 @@ INSERT INTO rols (id_rol, nombre) VALUES
 (3, 'usuario Comun');
 
 ---------------------------- 6 ---------------------------------
--- Crear la tabla 'usuarios'
+-- Actualizar la tabla users tras la migracion -----
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50),
