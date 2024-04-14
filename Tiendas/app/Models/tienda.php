@@ -17,9 +17,9 @@ class tienda extends Model
     //     return $this->belongsTo(user::class,'user_id','id');
     // }
 
-    public function usuario()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id','id');
     }
     public function juegos()
     {

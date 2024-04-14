@@ -11,9 +11,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\JuegoController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::resource('roles',RolController::class);
 Route::resource('plataformas',PlataformaController::class);
@@ -25,7 +25,7 @@ Route::resource('tiendas',TiendaController::class);
 Route::resource('juegos',JuegoController::class);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard'); // este hay que modificar
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
