@@ -9,6 +9,7 @@ use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\MetodoDePagoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\JuegoController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -21,6 +22,7 @@ Route::resource('estados',EstadoController::class);
 Route::resource('metodos',MetodoDePagoController::class);
 Route::resource('users',UserController::class);
 Route::resource('tiendas',TiendaController::class);
+Route::resource('juegos',JuegoController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

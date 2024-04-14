@@ -54,4 +54,9 @@ class User extends Authenticatable
     public function rol(){
         return $this->belongsTo(rol::class,'id_rol','id_rol');
     }
+
+    public function tienda()
+    {
+        return $this->hasOne(Tienda::class, 'user_id');
+    }
 }

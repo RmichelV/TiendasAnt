@@ -61,7 +61,7 @@
     
 
 <!-- Modal ELIMINAR-->
-<div class="modal fade" id="eliminar{{$tiendas->id_tienda}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminar{{$tienda->id_tienda}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

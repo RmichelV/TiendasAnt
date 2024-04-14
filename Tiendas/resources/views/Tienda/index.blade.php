@@ -25,6 +25,8 @@
                     <tr class="">
                         <td scope="row">{{$tienda->id_tienda}}</td> <!--aqui va el id-->
                         <td> {{$tienda->nombre}} </td>
+                        <td> {{$tienda->direccion}} </td>
+                        <td> {{$tienda->user->name}} </td>
                         <td>
                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editar{{$tienda->id_tienda}}">
                                 Editar
