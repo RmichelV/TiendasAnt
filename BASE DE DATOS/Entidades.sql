@@ -84,13 +84,13 @@ INSERT INTO rols (id_rol, nombre) VALUES
 
 ---------------------------- 6 ---------------------------------
 -- Crear la tabla 'usuarios'
-CREATE TABLE usuarios (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    nombres VARCHAR(50),
-    apellidos VARCHAR(50),
-    fecha_de_nacimiento DATE,
-    correo VARCHAR(50),
-    pssword VARCHAR(50),
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    last_name VARCHAR(50),
+    birthday DATE,
+    email VARCHAR(50),
+    password VARCHAR(50),
     id_rol INT,
     FOREIGN KEY (id_rol) REFERENCES rols(id_rol) ON DELETE CASCADE
 );
@@ -138,9 +138,9 @@ CREATE TABLE juegos_plataformas (
 ----------------------------- 11 ----------------------------
 CREATE TABLE juegos_generos (
     id_juego INT,
-    id_generos INT,
+    id_genero INT,
     FOREIGN KEY (id_juego) REFERENCES juegos(id_juego) ON DELETE CASCADE,
-    FOREIGN KEY (id_generos) REFERENCES generos(id_genero) ON DELETE CASCADE
+    FOREIGN KEY (id_genero) REFERENCES generos(id_genero) ON DELETE CASCADE
 );
 
 ----------------------------- 12 ---------------------------------
