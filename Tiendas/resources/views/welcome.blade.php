@@ -16,7 +16,33 @@
                         @if($key % 4 == 0 && $key != 0)
                             </tr><tr>
                         @endif
-                    <td><img src="{{ $juego->imagen }}" alt="img-juego" srcset="" width="200" height="200"><br>{{$juego->nombre}}</td>
+                    <td>
+                        <center>
+                            <img src="{{ $juego->imagen }}" alt="img-juego" srcset="" width="200" height="200"> <br> 
+                            {{$juego->nombre}} <br>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$key}}">
+                                Ver más informacion
+                            </button>
+
+                            <div class="modal fade" id="exampleModal{{$key}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$key}}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel{{$key}}">{{$juego->nombre}}</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{$juego->descripcion}}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center> 
+                    </td>
                     @endforeach
                 </tr>
                 
