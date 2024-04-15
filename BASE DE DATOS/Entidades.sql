@@ -101,16 +101,16 @@ CREATE TABLE tiendas (
     id_tienda INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
     direccion VARCHAR(200),
-    id_usuario INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 ---------------------- 8 -----------------------------------------
 
 CREATE TABLE carritos (
     id_carrito INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE RESTRICT
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT
 );
 
 -------------------9------------------------------------------
