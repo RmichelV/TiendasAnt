@@ -19,7 +19,7 @@
                             name="nombre"
                             id=""
                             aria-describedby="helpId"
-                            placeholder="Agregue el estado de venta aqui"
+                            placeholder="Agregue un estado de venta aqui"
                             value="{{$estado->nombre}}"
                         />
                     </div>
@@ -32,6 +32,7 @@
         </div>
     </div>
 </div>
+
 @endforeach
 
 <!-- Modal ELIMINAR-->
@@ -58,3 +59,4 @@
     </div>
 </div>
 @endforeach
+

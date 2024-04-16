@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\estado;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
+
 class EstadoController extends Controller
 {
     /**

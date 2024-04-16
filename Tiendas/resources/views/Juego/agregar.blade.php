@@ -37,7 +37,8 @@
                             aria-describedby="helpId"
                             placeholder="Agregue aqui la cantidad minima y maxima de jugadores"
                         />
-                        <label for="" class="form-label">Precio</label>
+                        <small id="helpId" class="form-text text-muted">Introduzca la cantidad numerica y terminacion en "Jugador(es)" </small>
+                        <label for="" class="form-label">Precio en Bs.: </label>
                         <input
                             type="text"
                             class="form-control"
@@ -46,6 +47,8 @@
                             aria-describedby="helpId"
                             placeholder="Agregue el precio del juego aqui"
                         />
+                        <small id="helpId" class="form-text text-muted">Para decimales usar la coma " , " </small>
+                        <br>
                         <label for="" class="form-label">Cantidad en Stock</label>
                         <input
                             type="text"

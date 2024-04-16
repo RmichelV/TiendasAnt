@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\juegos_carrito;
+use App\Models\User;
+use App\Models\carrito;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JuegosCarritoController extends Controller
 {
@@ -28,7 +32,32 @@ class JuegosCarritoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_id = Auth::id();
+
+        // Obtener el carrito asociado al usuario (si existe)
+        $carrito = Carrito::where('user_id', $user_id)->first();
+
+    
+        // dd($carrito);
+
+        
+        if (!$carrito) {
+            return redirect()->back()->with('error', 'No se encontró el carrito asociado al usuario');
+        }
+    
+        // Obtener el ID del juego desde la solicitud
+        $juego_id = $request->input('juego_id');
+    
+        // Crear una nueva entrada en la tabla juegos_carritos
+        $juegos_carritos = new juegos_carrito();
+
+        // Asignar el id del carrito en lugar del objeto completo
+        $juegos_carritos->id_carrito = $carrito->id_carrito;
+
+        $juegos_carritos->id_juego = $juego_id;
+        $juegos_carritos->save();
+        // Redireccionar de vuelta a donde sea necesario
+        return redirect()->back()->with('success', 'Juego agregado al carrito exitosamente');
     }
 
     /**
