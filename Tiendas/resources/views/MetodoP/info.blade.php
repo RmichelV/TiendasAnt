@@ -20,6 +20,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue la forma de pago aqui"
                             value="{{$metodo->nombre}}"
+                            required
                         />
                     </div>
                     <div class="modal-footer">

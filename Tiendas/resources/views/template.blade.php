@@ -56,7 +56,7 @@
                         @auth
                             @if (auth()->user()->id_rol== 3)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Carrito</a>
+                                    <a class="nav-link" href="{{url('lcarritos')}}">Carrito</a>
                                 </li>
                             @endif
                         @endauth

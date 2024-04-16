@@ -20,6 +20,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue el genero aqui"
                             value="{{$genero->nombre}}"
+                            required
                         />
                     </div>
                     <div class="modal-footer">

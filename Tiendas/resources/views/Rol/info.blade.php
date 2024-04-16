@@ -20,6 +20,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue el rol aqui"
                             value="{{$rol->nombre}}"
+                            required
                         />
                     </div>
                     <div class="modal-footer">

@@ -21,6 +21,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue el rol aqui"
                             value="{{$user->name}}"
+                            required
                         />
                         <label for="" class="form-label">Apellidos</label>
                         <input
@@ -40,6 +41,7 @@
                             id=""
                             aria-describedby="helpId"
                             value="{{$user->birthday}}"
+                            required
                         />
                         <label for="" class="form-label">Correo</label>
                         <input
@@ -50,6 +52,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue el correo aqui"
                             value="{{$user->email}}"
+                            required
                         />
                         <label for="" class="form-label">Contraseña</label>
                         <input
@@ -60,6 +63,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue la contraseña aqui"
                             value="{{$user->password}}"
+                            required
                         />
                         <label for="" class="form-label">Tipo de usuario</label>
                         <select name="rol" id="" class="form-control">

@@ -13,7 +13,7 @@ use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\JuegoController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\JuegosCarritoController;
-
+use App\Http\Controllers\CarritoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +30,7 @@ Route::resource('tiendas',TiendaController::class);
 Route::resource('juegos',JuegoController::class);
 Route::resource('/',WelcomeController::class);
 Route::resource('carritos',JuegosCarritoController::class);
+Route::resource('lcarritos',CarritoController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard'); // este hay que modificar

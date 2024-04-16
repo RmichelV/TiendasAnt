@@ -18,6 +18,7 @@
                             id="nombre"
                             aria-describedby="helpId"
                             placeholder="Agregue aquí el genero "
+                            required
                         />
                         <small id="helpId" class="form-text text-muted">Por favor no utilice @/-_."" '' u otros similares </small>
                         <div id="nombre-error" class="alert alert-danger" style="display: none;">

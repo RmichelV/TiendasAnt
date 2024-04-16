@@ -11,5 +11,10 @@ class carrito extends Model
     protected $table = "carritos";
     protected $primaryKey = "id_carrito";
     
+    public function juegos()
+    {
+        return $this->hasMany(Juegos_Carrito::class, 'id_carrito', 'id_carrito');
+    }
+    
     public $timestamps = false;
 }

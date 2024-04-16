@@ -21,6 +21,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue un estado de venta aqui"
                             value="{{$estado->nombre}}"
+                            required
                         />
                     </div>
                     <div class="modal-footer">

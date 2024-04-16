@@ -20,6 +20,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue la plataforma aqui"
                             value="{{$plataforma->nombre}}"
+                            required
                         />
                     </div>
                     <div class="modal-footer">

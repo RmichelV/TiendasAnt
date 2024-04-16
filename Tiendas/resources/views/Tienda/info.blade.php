@@ -23,6 +23,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue el rol aqui"
                             value="{{$tienda->nombre}}"
+                            required
                         />
                         <label for="" class="form-label">Direccion de la  Tienda</label>
                         <input
@@ -33,6 +34,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue el rol aqui"
                             value="{{$tienda->direccion}}"
+                            required
                         />
                         <label for="user" class="form-label">Pertenece a: </label>
                         <select name="user" id="" class="form-control">
