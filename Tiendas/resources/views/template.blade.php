@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{url('home')}}">Home</a>
                         </li>
                         @auth
                             
@@ -61,15 +61,37 @@
                             @endif
                         @endauth
                     </ul>
-                    <form class="d-flex" role="search">
+                    {{-- <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                    
+                    </form> --}}
+                    <div>
                         @auth
-                            <button type="button" class="btn btn-outline-success">
+                            {{-- <button type="button" class="btn btn-outline-success">
                             <a href="{{route('dashboard')}}">Dashboard</a>
-                            </button>
+                            </button> --}}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:aqua">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    {{-- <li><a class="dropdown-item" href="{{route('profile.edit')}}">Editar Perfil</a></li> --}}
+                                    <x-dropdown-link :href="route('profile.edit')">
+                                        {{ __('Editar Perfil') }}
+                                    </x-dropdown-link>
+            
+                                    <!-- Authentication -->
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+            
+                                        <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                                                {{ __('Salir') }}
+                                        </x-dropdown-link>
+                                    </form>
+                                </ul>
+                            </li>
                         @else 
                             <button type="button" class="btn btn-outline-success">
                                 <a href="{{route('login')}}">Iniciar Sesión</a>
@@ -78,6 +100,7 @@
                                 <a href="{{route('register')}}">Registrarse</a>
                             </button>
                         @endauth
+                    </div>
                 </div>
             </div>
         </nav>

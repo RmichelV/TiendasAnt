@@ -20,6 +20,9 @@
                             <center>
                                 <img src="{{ $juego->imagen }}" alt="img-juego" srcset="" width="200" height="200"> <br> 
                                 {{$juego->nombre}} <br>
+                                
+                                    
+                                
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$key}}">
                                     Ver más informacion
                                 </button>
@@ -32,19 +35,25 @@
                                             </div>
                                             <div class="modal-body">
                                                 <img src="{{ $juego->imagen }}" alt="img-juego" srcset="" width="200" height="200"> <br> 
-                                                {{$juego->descripcion}}
+                                                <strong>Descripción</strong> {{$juego->descripcion}} <br>
+                                                <strong>Precio: Bs.</strong>  {{$juego->precio}} <br>
+                                                <strong>Cantidad de jugadores: </strong>{{$juego->cantidad_de_jugadores}} <br>
+                                                <strong>Cantidad en stock: </strong>{{$juego->stock}}
                                             </div>
                                             <div class="modal-footer">
                                                 <form action="{{ route('carritos.store') }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="juego_id" value="{{ $juego->id_juego }}">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    @auth
                                                     <button type="submit" class="btn btn-primary">Agregar a carrito</button>
+                                                    @endauth
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </center> 
                         </td>
                     @endforeach

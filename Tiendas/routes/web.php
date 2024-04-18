@@ -32,8 +32,8 @@ Route::resource('/',WelcomeController::class);
 Route::resource('carritos',JuegosCarritoController::class);
 Route::resource('lcarritos',CarritoController::class);
 
-Route::get('/dashboard', function () {
-    return view('dashboard'); // este hay que modificar
+Route::get('/home', function () {
+    return view('Home'); // este hay que modificar
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
