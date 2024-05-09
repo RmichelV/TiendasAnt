@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\juegos_genero;
+use App\Models\juego;
+use App\Models\genero;
+
 use Illuminate\Http\Request;
 
 class JuegosGeneroController extends Controller
@@ -12,7 +15,31 @@ class JuegosGeneroController extends Controller
      */
     public function index()
     {
-        //
+        $genjuegos = juegos_genero::all();
+        $juegos = juego::all();
+        $generos = genero::all();
+        return view ('categorias.generos',compact('juegos','genjuegos','generos'));
+    }
+
+    /**
+ * Display the juegos by specified genero.
+ */
+
+    public function getJuegosGenerosByGenero($generoId)
+    {
+        // Obtener los registros de juegos_generos correspondientes al género dado
+        $juegosGeneros = juegos_genero::where('id_genero', $generoId)->get();
+
+        // Retornar los registros como respuesta JSON
+        return response()->json($juegosGeneros);
+    }
+
+
+    public function getJuegoById($juegoId)
+    {
+        $juego = juego::find($juegoId);
+
+        return response()->json($juego);
     }
 
     /**

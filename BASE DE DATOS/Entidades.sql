@@ -26,24 +26,24 @@ CREATE TABLE generos (
 INSERT INTO generos (id_genero, nombre) VALUES
 (1, 'Acción'),
 (2, 'Aventura'),
-(3, 'Rol (RPG)'),
-(4, 'Estrategia'),
-(5, 'Simulación'),
-(6, 'Deportes'),
-(7, 'Carreras'),
-(8, 'Lucha'),
-(9, 'Plataforma'),
-(10, 'Terror'),
-(11, 'Mundo abierto'),
-(12, 'Sandbox'),
-(13, 'Supervivencia'),
-(14, 'Puzzle'),
-(15, 'Musicales'),
-(16, 'Shooter'),
-(17, 'MMO (Multijugador Masivo Online)'),
-(18, 'Educacionales'),
-(19, 'Novela visual'),
-(20, 'Indie');
+(3, 'Carreras'),
+(4, 'Deportes'),
+(5, 'Educacionales'),
+(6, 'Indie'),
+(7, 'Lucha'),
+(8, 'MMO (Multijugador Masivo Online)'),
+(9, 'Mundo abierto'),
+(10, 'Musicales'),
+(11, 'Novela visual'),
+(12, 'Puzzle'),
+(13, 'Plataforma'),
+(14, 'Rol (RPG)'),
+(15, 'Sandbox'),
+(16, 'Simulación'),
+(17, 'Shooter'),
+(18, 'Supervivencia'),
+(19, 'Terror');
+
 
 ---------------------------- 3 --------------------------------
 
@@ -84,16 +84,8 @@ INSERT INTO rols (id_rol, nombre) VALUES
 
 ---------------------------- 6 ---------------------------------
 -- Actualizar la tabla users tras la migracion -----
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50),
-    last_name VARCHAR(50),
-    birthday DATE,
-    email VARCHAR(50),
-    password VARCHAR(50),
-    id_rol INT,
-    FOREIGN KEY (id_rol) REFERENCES rols(id_rol) ON DELETE CASCADE
-);
+// agregar last_name varchar 255 y birthday date ( habilitar null) 
+// ambos campos despues de name 
 
 ----------------------------- 7 -------------------------------
 
@@ -101,20 +93,13 @@ CREATE TABLE tiendas (
     id_tienda INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
     direccion VARCHAR(200),
-    user_id INT,
+    user_id BIGINT UNSIGNED,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 ---------------------- 8 -----------------------------------------
-
-CREATE TABLE carritos (
-    id_carrito INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT
-);
-
--------------------9------------------------------------------
 -- Crear la tabla 'juegos'
+
 CREATE TABLE juegos (
     id_juego INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
@@ -126,6 +111,18 @@ CREATE TABLE juegos (
     id_tienda INT,
     FOREIGN KEY (id_tienda) REFERENCES tiendas(id_tienda) ON DELETE CASCADE
 );
+
+-------------------9------------------------------------------
+
+-- tabla de carrito actualizada 
+CREATE TABLE carritos (
+    id_carrito INT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT UNSIGNED,
+    id_juego INT,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_juego) REFERENCES juegos(id_juego) ON DELETE CASCADE
+);
+
 
 ------------------------------ 10 ------------------------------
 CREATE TABLE juegos_plataformas (
@@ -144,10 +141,6 @@ CREATE TABLE juegos_generos (
 );
 
 ----------------------------- 12 ---------------------------------
-CREATE TABLE juegos_carritos (
-    id_carrito INT,
-    id_juego INT,
-    FOREIGN KEY (id_juego) REFERENCES juegos(id_juego) ON DELETE CASCADE,
-    FOREIGN KEY (id_carrito) REFERENCES carritos(id_carrito) ON DELETE CASCADE
-);
+
+
 ---------------------------13-----------------------------

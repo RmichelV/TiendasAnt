@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\JuegosGeneroController;
+use App\Http\Controllers\JuegosPlataformaController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +17,15 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\JuegosCarritoController;
 use App\Http\Controllers\CarritoController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('pago',function () {
+    return view('metodop.metodo_p');
+});
+
 
 Route::resource('templates', TemplateController::class);
 Route::resource('roles',RolController::class);
@@ -31,6 +39,11 @@ Route::resource('juegos',JuegoController::class);
 Route::resource('/',WelcomeController::class);
 Route::resource('carritos',JuegosCarritoController::class);
 Route::resource('lcarritos',CarritoController::class);
+
+Route::resource('genjuegos',JuegosGeneroController::class);
+Route::get('/genjuegos/{generoId}/juegos-generos', [JuegosGeneroController::class, 'getJuegosGenerosByGenero']);
+
+Route::resource('platjuegos',JuegosPlataformaController::class);
 
 Route::get('/home', function () {
     return view('Home'); // este hay que modificar

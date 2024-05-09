@@ -79,16 +79,40 @@ class JuegosCarritoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, juegos_carrito $juegos_carrito)
+    public function update(Request $request, $id_juegos_carrito)
     {
-        //
+        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(juegos_carrito $juegos_carrito)
+    public function destroy(Request $request, $id_juego)
     {
-        //
+        // Obtener el ID del usuario autenticado
+        $user_id = Auth::id();
+
+        // Obtener el carrito asociado al usuario
+        $carrito = Carrito::where('user_id', $user_id)->first();
+
+        // Verificar si se encontró el carrito
+        if (!$carrito) {
+            return redirect()->back()->with('error', 'No se encontró el carrito asociado al usuario.');
+        }
+
+        // Buscar el juego en el carrito
+        $juego_carrito = juegos_carrito::where('id_carrito', $carrito->id)
+            ->where('id_juego', $id_juego)
+            ->first();
+
+        // Verificar si se encontró el juego en el carrito
+        if ($juego_carrito) {
+            // Eliminar el juego del carrito
+            $juego_carrito->delete();
+            return redirect()->back()->with('success', 'Juego eliminado del carrito exitosamente.');
+        } else {
+            return redirect()->back()->with('error', 'El juego no está en el carrito.');
+        }
     }
+
 }

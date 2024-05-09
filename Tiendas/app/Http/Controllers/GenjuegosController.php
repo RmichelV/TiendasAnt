@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\template;
+use App\Models\genjuegos;
 use Illuminate\Http\Request;
-use App\Models\rol;
-use App\Models\User;
-use App\Models\genero;
-class TemplateController extends Controller
+
+class GenjuegosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $user = auth()->user();
-        $rol = $user->id_rol;
-        $generos = genero::all();
-        return view("template", compact("rol","generos"));
+        //
     }
 
     /**
@@ -39,7 +34,7 @@ class TemplateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(template $template)
+    public function show(genjuegos $genjuegos)
     {
         //
     }
@@ -47,7 +42,7 @@ class TemplateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(template $template)
+    public function edit(genjuegos $genjuegos)
     {
         //
     }
@@ -55,7 +50,7 @@ class TemplateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, template $template)
+    public function update(Request $request, genjuegos $genjuegos)
     {
         //
     }
@@ -63,7 +58,7 @@ class TemplateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(template $template)
+    public function destroy(genjuegos $genjuegos)
     {
         //
     }

@@ -1,9 +1,12 @@
 <!-- Modal editar -->
+@foreach ($metodos as $metodo)
+    
+
 <div class="modal fade" id="editar{{$metodo->id_metodop}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nuevo Metodo de pago</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Metodo de pago</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{route('metodos.update',$metodo->id_metodop)}}" method="post">
@@ -55,3 +58,5 @@
         </div>
     </div>
 </div>
+
+@endforeach

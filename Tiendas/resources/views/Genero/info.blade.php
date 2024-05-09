@@ -1,4 +1,7 @@
 <!-- Modal editar -->
+@foreach ($generos as $genero)
+    
+
 <div class="modal fade" id="editar{{$genero->id_genero}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -20,7 +23,7 @@
                             aria-describedby="helpId"
                             placeholder="Agregue el genero aqui"
                             value="{{$genero->nombre}}"
-                            required
+                            {{-- required --}}
                         />
                     </div>
                     <div class="modal-footer">
@@ -55,3 +58,5 @@
         </div>
     </div>
 </div>
+
+@endforeach

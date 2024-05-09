@@ -26,8 +26,18 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{url('home')}}">Home</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{url('genjuegos')}}">Por géneros</a></li>
+                                <li><a class="dropdown-item" href="{{url('platjuegos')}}">Por Plataformas</a></li>
+                            </ul>
+                        </li>
+                        
+
                         @auth
-                            
                             @if (auth()->user()->id_rol== 1 || auth()->user()->id_rol== 2)
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('juegos')}}">Lista de Juegos</a>
@@ -125,5 +135,7 @@
             crossorigin="anonymous"
         ></script>
     <!--FIN JS BOOTSTRAP-->
+
+    
     </body>
 </html>

@@ -1,4 +1,7 @@
 <!-- Modal editar -->
+@foreach ($plataformas as $plataforma)
+    
+
 <div class="modal fade" id="editar{{$plataforma->id_plataforma}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -55,3 +58,5 @@
         </div>
     </div>
 </div>
+
+@endforeach

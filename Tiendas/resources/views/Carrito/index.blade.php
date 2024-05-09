@@ -13,7 +13,17 @@
                 @forelse ($juegos_en_carrito as $juego)
                     <tr>
                         <td>{{ $juego->nombre }}</td>
-                        <td><!-- Aquí puedes agregar acciones relacionadas con los juegos --></td>
+                        <td>
+                            <a href="{{url('pago')}}">
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editar{{$juego->id_juego}}">
+                                    Comprar
+                                </button>
+                            </a>
+                            
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar{{$juego->id_juego}}">
+                                Eliminar
+                            </button>
+                        </td>
                     </tr>
                 @empty
                     <tr>
@@ -24,4 +34,5 @@
         </table>
     </div>
     
+    @include('Carrito.info')
 @endsection
